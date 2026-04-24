@@ -1,0 +1,21 @@
+target_total_requests: 100000
+target_window_seconds: 3600
+headroom_factor: 1.2
+kafka:
+  topic_partitions: 12
+  replication_factor: 3
+  min_insync_replicas: 2
+  producer:
+    acks: all
+    batch_size: 65536
+    linger_ms: 5
+    compression_type: lz4
+  consumer:
+    group_size: 6
+    max_poll_records: 500
+    fetch_min_bytes: 1
+    fetch_max_wait_ms: 500
+  reliability:
+    retries: 8
+    retry_backoff_ms: 100
+    request_timeout_ms: 30000
